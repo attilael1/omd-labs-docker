@@ -12,10 +12,9 @@ ENV PYTHONPATH=/omd/versions/default/lib/python/
 ENV ANSIBLE_CONFIG=${ANSIBLE_DROPIN}/ansible.cfg
 ENV ANSIBLE_VERBOSITY=
 
-RUN yum -y install epel-release && \
-    yum clean all && \
-    yum -y update && \
-    yum -y install which lsof vim git openssh-server tree
+RUN yum -y install epel-release ; yum -y clean all
+RUN yum -y update ; yum -y clean all
+RUN yum -y install which lsof vim git openssh-server tree ; yum -y clean all
 
 RUN rpm -Uvh "https://labs.consol.de/repo/testing/rhel7/x86_64/labs-consol-testing.rhel7.noarch.rpm" && \
     yum -y update && \
