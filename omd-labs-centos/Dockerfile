@@ -16,7 +16,8 @@ RUN yum -y install epel-release ; yum -y clean all
 RUN yum -y update ; yum -y clean all
 RUN yum -y install which lsof vim git openssh-server tree ; yum -y clean all
 
-RUN rpm -Uvh "https://labs.consol.de/repo/testing/rhel7/x86_64/labs-consol-testing.rhel7.noarch.rpm" && \
+RUN curl -o /tmp/labs-consol-testing.rhel7.noarch.rpm  https://labs.consol.de/repo/testing/rhel7/x86_64/labs-consol-testing.rhel7.noarch.rpm && \
+    rpm -Uvh /tmp/labs-consol-testing.rhel7.noarch.rpm && \
     yum -y update && \
     yum -y install omd-labs-edition-daily
 
